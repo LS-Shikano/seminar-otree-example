@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<br>
+<h2> Survey Example </h2>
+    <hr>
+    Welcome to the first session of the tutorial. Here we are just going to have  a look at the very basic structure of otre.
+
+    <!-- This is the most basic way of implementing an input field -->
+    {{ formfield "entry_question"}}
+
+   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}
