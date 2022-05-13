@@ -14,8 +14,26 @@
     <!-- This is the most basic way of implementing an input field -->
     {{ formfield "age_question"}}
 
-   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
-    Next
+    <!-- This is a more advances way of implementing a question -->
+<!-- the type says what kind of input "field" you would like, the name has to 
+be the same as on models.py and the value is what will be displayed in your dataset
+if the option is clicked -->
+<p><b>Which gender do you identify with?</b></p>
+<input  type="radio" name="gender"  value="1"/> Male
+<br>
+<input  type="radio" name="gender"  value="2"/> Female
+<br>
+<input  type="radio" name="gender"  value="3"/> Divers
+<br>
+<input  type="radio" name="gender"  value="4"/> Prefer not to say
+<br>
+<br>
+
+<!-- we can also have variables that are not displayed and work in the background -->
+<input type="hidden" name="hidden_input">
+
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+Next
 </button>
 
 {% endblock %}

@@ -13,7 +13,7 @@ class Welcome(Page):
 
 class DemoPage(Page):
     form_model = Player
-    form_fields = ['age_question']
+    form_fields = ['age_question', 'gender', 'hidden_input']
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
