@@ -11,6 +11,13 @@ class Welcome(Page):
     form_model = Player
     form_fields = ['entry_question']
 
+#with the function before_next_page you can can control what should happen. It is a nice feature for filtering
+#or also setting variables
+    def before_next_page(self):
+        #here we are increasing the counter for each player that goes past the Welcome Page
+        self.group.counter += 1
+
+
 class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']

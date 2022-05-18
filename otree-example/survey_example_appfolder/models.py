@@ -21,8 +21,9 @@ class Subsession(BaseSubsession):
     pass
 
 class Group(BaseGroup):
-    #we will only come to the group class when we look at advanced methods
-    pass
+    counter = models.IntegerField(initial = 0)
+    #this is how you can implement variables that can be used by every player
+    #they are called group variables and useful for example when quota checking
 
 
 class Player(BasePlayer):
