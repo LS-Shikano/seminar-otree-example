@@ -22,11 +22,15 @@ class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']
 
+class Html_overview(Page):
+    form_model = Player
+
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
     form_model = Player
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                DemoPage,           
+                DemoPage,
+                Html_overview,
                 EndPage]
