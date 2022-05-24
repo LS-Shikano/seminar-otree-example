@@ -41,6 +41,12 @@ class Player(BasePlayer):
     
 #The Variables are structured on the base of pages
     group_assignment = models.IntegerField() #the variable we declared on top
+
+    device_type = models.IntegerField()
+    operating_system = models.IntegerField()
+    screen_height = models.IntegerField(initial=-999)
+    screen_width = models.IntegerField(initial=-999)
+    
     entry_question = models.StringField(blank = True) #this is an optional field through blank = True
     age_question = models.IntegerField(max=110, min=1)  #we can also have max and min guidelines
     gender = models.IntegerField(initial=-999, label='Gender Question')  #we can add an initial value or a different label

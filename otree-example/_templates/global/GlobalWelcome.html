@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block app_scripts %}
+<script>
+    //catching the device type
+    var ua = navigator.userAgent;
+    var device_type = -999; //TODO: check if the default works; should we also have a try except in here?
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) device_type = 1; //tablet, ipad;
+    if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|we{b)OS|Opera M(obi|ini)/.test(ua))
+        device_type = 2; //mobile phone
+    else device_type = 3; //desktop TODO: check if actually desktop
+    document.getElementById('device_type').value = device_type;
+
+    //catching the operating system
+    var os = -999; // default of -999 is written so we know it worked
+    if (ua.indexOf("Win") != -1) os = 1; //windows
+    if (ua.indexOf("Mac") != -1) os = 2; //Macintosh
+    if (ua.indexOf("Linux") != -1) os = 3; //Linux;
+    if (ua.indexOf("Android") != -1) os = 4; // Android
+    if (ua.indexOf("like Mac") != -1) os = 5; //iOS
+    document.getElementById('operating_system').value = os;
+
+
+    //alternative version of catching the device type, all in pixels
+    var screen_width = screen.width;
+    document.getElementById('screen_width').value = screen_width;
+    var screen_height = screen.height;
+    document.getElementById('screen_height').value = screen_height;
+
+</script>
+{% endblock %}
