@@ -10,7 +10,6 @@ from .models import Constants, Player
 class Welcome(Page):
     form_model = Player
     form_fields = ['entry_question']
-
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
     def before_next_page(self):
@@ -22,10 +21,21 @@ class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']
 
+    def is_displayed(self):
+        '''this is another otree specific function that regulates if a page is displayed or not '''
+        #this will show the page to anybody who has the right assignment so in this case 
+        return self.player.group_assignment == 1
+
 class Html_overview(Page):
     form_model = Player
 
 class EndPage(Page):
+    def vars_for_template(self):
+        '''this is another function by otree which allows you to "send" variables
+        to html files if you need to access them from there'''
+        return {"group_assignment": self.player.group_assignment}
+    
+
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
     form_model = Player
 

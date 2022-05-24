@@ -9,6 +9,9 @@ from otree.api import (
     currency_range,
 )
 
+#this is where we would import andy extra functions or packages we need from python
+import random 
+
 author = 'your names and team objective go here'
 doc = 'Your app description goes here'
 
@@ -18,8 +21,15 @@ class Constants(BaseConstants):
     num_rounds = 1
 
 class Subsession(BaseSubsession):
-    pass
-
+    def creating_session(self):
+        '''this is a function by otree (same can not be changed)
+        which is creating a new subsession. Any variables that are needed to be custom
+        (so declaring it in a different way before) are created here'''
+        for p in self.get_players():
+            #here we want to declare the players to different groups (2 in total)
+            #we use a python function here from 'random' we imported earlier
+            p.group_assignment = random.Random().randint(0, 1)
+    
 class Group(BaseGroup):
     counter = models.IntegerField(initial = 0)
     #this is how you can implement variables that can be used by every player
@@ -30,9 +40,10 @@ class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
     
 #The Variables are structured on the base of pages
+    group_assignment = models.IntegerField() #the variable we declared on top
     entry_question = models.StringField(blank = True) #this is an optional field through blank = True
     age_question = models.IntegerField(max=110, min=1)  #we can also have max and min guidelines
-    gender = models.IntegerField(initial=-999)  #we can add an initial value 
+    gender = models.IntegerField(initial=-999, label="Gender Question")  #we can add an initial value or a different label
     hidden_input = models.IntegerField(initial=50, blank=True)
 
 
