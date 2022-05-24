@@ -12,23 +12,22 @@
     //this is how we get the 'sent' variable from pages back
     var group_assignment = {{ group_assignment }};
 
-
     //depending on in which group a player was we want to display a custom message
-
     //we need to first get the elements we want to show
-    var div_group0 = document.getElementById('group0')
-    var div_group1 = document.getElementById('group1')
+    var div_group0 = document.getElementById('group0');
+    var div_group1 = document.getElementById('group1');
 
     //we can do this with a javascript function:
     if (group_assignment == 0) {
-        div_group0.style.display = "block"
+        div_group0.style.display = "block";
     }
     if (group_assignment == 1) {
-        div_group1.style.display = "block"
+        div_group1.style.display = "block";
     }
 
-
-
+    // if(condition){
+    //     what happens when condition is met
+    // }
 </script>
 
 {% endblock %}

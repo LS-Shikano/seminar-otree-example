@@ -43,8 +43,12 @@ class Player(BasePlayer):
     group_assignment = models.IntegerField() #the variable we declared on top
     entry_question = models.StringField(blank = True) #this is an optional field through blank = True
     age_question = models.IntegerField(max=110, min=1)  #we can also have max and min guidelines
-    gender = models.IntegerField(initial=-999, label="Gender Question")  #we can add an initial value or a different label
+    gender = models.IntegerField(initial=-999, label='Gender Question')  #we can add an initial value or a different label
     hidden_input = models.IntegerField(initial=50, blank=True)
+    popout_question = models.IntegerField(blank=True)
+    popout_yes = models.StringField(blank=True)
+    popout_no = models.StringField(blank=True)
+    time_popout = models.StringField(initial='-999')
 
 
     #custom error message

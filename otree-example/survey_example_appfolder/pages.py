@@ -29,6 +29,10 @@ class DemoPage(Page):
 class Html_overview(Page):
     form_model = Player
 
+class PopoutPage(Page):
+    form_model = Player
+    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
+
 class EndPage(Page):
     def vars_for_template(self):
         '''this is another function by otree which allows you to "send" variables
@@ -43,4 +47,5 @@ class EndPage(Page):
 page_sequence = [Welcome,
                 DemoPage,
                 Html_overview,
+                PopoutPage,
                 EndPage]

@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block app_scripts %}
+<!-- you can see that we are having a global page here. This is 
+useful if he have some scripts or functionalities that would
+'overcrowd' the local templates or we have things we want to reuse in a lot of pages -->
+<script>
+    // TIME: we are going to write the time the participant entered the page to a variable
+    var time = new Date(); //creates the current time
+    var time = time.toISOString(); //to.ISOString() ensures we get miliseconds
+    document.getElementById('time_popout').value = time; //we get the element (variable) we want to write the value to
+    //a sidenote: the time zone might be different in your localhost as in real life
+</script>
+{% endblock %}
