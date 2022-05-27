@@ -45,12 +45,17 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
     
+    #variables on the HelperFunctions.py
+    screenout = models.BooleanField(initial=0)
+    quota = models.BooleanField(initial=0)
+
     #Welcome
     device_type = models.IntegerField()
     operating_system = models.IntegerField()
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
     entry_question = models.StringField(blank = True) #this is an optional field through blank = True
+    eligible_question = models.IntegerField()
     # DemoPage
     age_question = models.IntegerField(max=110, min=1)  #we can also have max and min guidelines
     gender = models.IntegerField(initial=-999, label='Gender Question')  #we can add an initial value or a different label

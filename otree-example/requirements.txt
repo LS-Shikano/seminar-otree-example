@@ -1,0 +1,2 @@
+#this is a requirements txt where we can document specific versions we need for packages etc.
+otree==5.8.1

@@ -7,9 +7,13 @@ from .models import Constants, Player
 #and we have the form_fields in a list which indicate the variables we have on that page. There will be
 #more functionality added here but this is a good start. 
 
+
+from survey_example_appfolder.HelperFunctions import detect_screenout, detect_quota
+
+
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'entry_question']
+    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'entry_question', 'eligible_question']
     
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
@@ -17,18 +21,29 @@ class Welcome(Page):
         #here we are increasing the counter for each player that goes past the Welcome Page
         self.group.counter += 1
 
+#we want to detect all the screenouts and the quota reached right away
+        detect_screenout(self)
+        detect_quota(self)
+
 
 class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']
 
+
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota': safe_json(self.player.quota)
+                }
+
+class Html_overview(Page):
+    form_model = Player
+
     def is_displayed(self):
         '''this is another otree specific function that regulates if a page is displayed or not '''
         #this will show the page to anybody who has the right assignment so in this case 
         return self.player.group_assignment == 1
-
-class Html_overview(Page):
-    form_model = Player
 
 class PopoutPage(Page):
     form_model = Player
@@ -38,7 +53,11 @@ class EndPage(Page):
     def vars_for_template(self):
         '''this is another function by otree which allows you to "send" variables
         to html files if you need to access them from there'''
-        return {"group_assignment": self.player.group_assignment}
+        return {"group_assignment": safe_json(self.player.group_assignment)}
+
+class RedirectPage(Page):
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label)}
     
 
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
@@ -49,4 +68,5 @@ page_sequence = [Welcome,
                 DemoPage,
                 Html_overview,
                 PopoutPage,
-                EndPage]
+                EndPage,
+                RedirectPage]

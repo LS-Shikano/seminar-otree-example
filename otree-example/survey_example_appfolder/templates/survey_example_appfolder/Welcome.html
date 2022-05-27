@@ -22,6 +22,13 @@
 <!-- This is the most basic way of implementing an input field -->
 {{ formfield "entry_question"}}
 
+<p><b>Are you eligible to take part in this survey??</b></p>
+<input type="radio" name="eligible_question" value="1" /> Yes
+<br>
+<input type="radio" name="eligible_question" value="2" /> No
+<br>
+
+
 <!-- you might see that this button looks differnt. It is because we used bootstrap classes
 to customize it. Bootstrap classes are essentially a premade layout that you can just 'load'
 by including it in the class. you can find more options on their website:
