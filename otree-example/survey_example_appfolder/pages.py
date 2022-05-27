@@ -22,13 +22,13 @@ class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']
 
+
+class Html_overview(Page):
+    form_model = Player
     def is_displayed(self):
         '''this is another otree specific function that regulates if a page is displayed or not '''
         #this will show the page to anybody who has the right assignment so in this case 
         return self.player.group_assignment == 1
-
-class Html_overview(Page):
-    form_model = Player
 
 class PopoutPage(Page):
     form_model = Player
