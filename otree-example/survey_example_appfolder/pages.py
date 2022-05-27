@@ -38,7 +38,7 @@ class EndPage(Page):
     def vars_for_template(self):
         '''this is another function by otree which allows you to "send" variables
         to html files if you need to access them from there'''
-        return {"group_assignment": self.player.group_assignment}
+        return {"group_assignment": safe_json(self.player.group_assignment)}
     
 
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
