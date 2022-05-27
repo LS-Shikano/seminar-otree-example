@@ -12,6 +12,10 @@
 <input id="screen_height" type="hidden" name="screen_height" />
 <input id="screen_width" type="hidden" name="screen_width" />
 
+
+<!-- persist-raw script input -->
+<script src="{% static 'persist-raw.js' %}"></script>
+
 <br>
 <h2> Survey Example </h2>
 <hr>
@@ -23,9 +27,9 @@
 {{ formfield "entry_question"}}
 
 <p><b>Are you eligible to take part in this survey??</b></p>
-<input type="radio" name="eligible_question" value="1" /> Yes
+<input type="radio" name="eligible_question" value="1" class="persist"/> Yes
 <br>
-<input type="radio" name="eligible_question" value="2" /> No
+<input type="radio" name="eligible_question" value="2" class="persist"/> No
 <br>
 
 
