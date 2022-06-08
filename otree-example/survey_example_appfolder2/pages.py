@@ -15,10 +15,6 @@ class Welcome(Page):
     form_model = Player
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'entry_question', 'eligible_question']
     
-
-
-
-
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
     def before_next_page(self):
@@ -33,9 +29,6 @@ class Welcome(Page):
 class DemoPage(Page):
     form_model = Player
     form_fields = ['age_question', 'gender', 'hidden_input']
-
-    def before_next_page(self):
-        self.participant.gender = 'hello'
 
 
     def vars_for_template(self):
@@ -54,7 +47,7 @@ class Html_overview(Page):
 
 class PopoutPage(Page):
     form_model = Player
-    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout'] #'gender' needed here?
+    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
 
 class EndPage(Page):
     def vars_for_template(self):

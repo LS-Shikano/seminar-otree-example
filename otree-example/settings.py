@@ -6,9 +6,11 @@ SESSION_CONFIGS = [
         name='survey_example',
         display_name='survey_example',
         num_demo_participants=10,
-        app_sequence=['survey_example_appfolder'],
+        app_sequence=['survey_example_appfolder', 'survey_example_appfolder2'],
     ),
 ]
+
+PARTICIPANT_FIELDS=['gender'] #accessing through multiple apps
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

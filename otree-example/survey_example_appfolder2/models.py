@@ -20,7 +20,7 @@ author = 'your names and team objective go here'
 doc = 'Your app description goes here'
 
 class Constants(BaseConstants):
-    name_in_url = 'survey-example'
+    name_in_url = 'survey-example2'
     players_per_group = None
     num_rounds = 1
 

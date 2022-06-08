@@ -1,9 +1,10 @@
 {% block scripts %}
-<!-- <script>
+<script>
     // window onload guarantees that the first thing once the window is loaded is executing this function
     window.onload = function () {
         //import variables 
-        var label = {{ participant_label }}; //tic number
+        var label = {{ participant_label }
+    }; //tic number
 
     //build urls 
     //new link
@@ -12,7 +13,7 @@
 
     window.location.replace(complete_link);
 }
-</script> -->
+</script>
 
 {% endblock %}
 
@@ -21,9 +22,6 @@
 <p>this is the redirect page. You should only see it (if at all) very short.
     It is helpful to have this be the same as the endpage so people don't notice it is an extra page.
 </p>
-<button class="otree-btn-next btn btn-primary next-button otree-next-button">
-    Next
-</button>
 
 
 {% endblock %}

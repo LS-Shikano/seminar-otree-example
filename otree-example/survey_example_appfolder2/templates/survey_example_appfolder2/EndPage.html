@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //this is a javascript script (code) here which belongs between the block scripts 
+
+    //this is how we get the 'sent' variable from pages back
+    var group_assignment = {{ group_assignment }};
+
+    //depending on in which group a player was we want to display a custom message
+    //we need to first get the elements we want to show
+    var div_group0 = document.getElementById('group0');
+    var div_group1 = document.getElementById('group1');
+
+    //we can do this with a javascript function:
+    if (group_assignment == 0) {
+        div_group0.style.display = "block";
+    }
+    if (group_assignment == 1) {
+        div_group1.style.display = "block";
+    }
+
+    // if(condition){
+    //     what happens when condition is met
+    // }
+</script>
+
+{% endblock %}
+
+{% block content %}
+<br>
+<h2> Survey Example </h2>
+<hr>
+
+<h2>End of Survey</h2>
+
+Thank you for your participation in this survey!
+
+<div id="group0" style="display: none">You were part of group 0!
+</div>
+<div id="group1" style="display: none">You were part of group 1!</div>
+<br>
+
+
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Submit answers
+</button>
+
+{% endblock %}
