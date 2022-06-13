@@ -54,7 +54,6 @@ def pass_second_page(driver):
 def pass_third_page(driver):
     # Again, check which page you're on first. Here's another way to do that
 
-    # Are we on the popout question page? # TODO: check the logic
     # Another way to do this is to search for any elements matching a certain identification
     popout_questions = driver.find_elements_by_name("popout_question")
 
@@ -95,7 +94,7 @@ def pass_final_page(driver):
 # ACTION
 driver = build_driver()  # initialize the driver
 
-session_wide_link = 'http://localhost:8000/join/takovovu'
+session_wide_link = 'http://localhost:8000/join/mamidejo'
 driver.get(session_wide_link)  # open the browser to the url of your survey
 
 pass_first_page(driver)  # run the function for the first page
@@ -111,4 +110,3 @@ pass_final_page(driver)
 print('Success! Closing the driver now...')
 
 driver.quit()
-# TODO: for freddy- what is the logic behind this? why does it sometimes close?
