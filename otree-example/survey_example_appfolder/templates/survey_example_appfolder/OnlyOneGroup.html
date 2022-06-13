@@ -1,0 +1,17 @@
+{% extends "global/GlobalWelcome.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+<h3>You are only be able to see this page if you have the right group assignment!</h3>
+<hr>
+<p>Other participants with a different group assignment will not see this page.</p>
+<button class="otree-btn-next btn btn-outline-success next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}

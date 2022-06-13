@@ -1,0 +1,26 @@
+{% block scripts %}
+<script>
+    // window onload guarantees that the first thing once the window is loaded is executing this function
+    window.onload = function () {
+        //import variables 
+        var label = {{ participant_label }}; //tic number
+
+    //build urls 
+    //new link
+    var complete_link = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=1&return_tic=" + label;
+    //c_002=1
+
+    window.location.replace(complete_link);
+}
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<p>this is the redirect page. You should only see it (if at all) very short.
+    It is helpful to have this be the same as the endpage so people don't notice it is an extra page.
+</p>
+
+
+{% endblock %}
