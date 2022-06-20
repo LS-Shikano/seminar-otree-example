@@ -34,7 +34,7 @@ def detect_quota(self):
     '''this function will check if a quota is already filled'''
     participant_number = self.group.counter
     #declare quota reached if we have more than 1 participant that started
-    if participant_number > 1:
+    if participant_number > 10:
         self.player.quota = 1
     return None
 

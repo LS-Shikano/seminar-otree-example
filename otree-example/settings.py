@@ -2,12 +2,13 @@ from os import environ
 
 
 SESSION_CONFIGS = [
-    dict(
-        name='survey_example',
-        display_name='survey_example',
-        num_demo_participants=10,
-        app_sequence=['survey_example_appfolder', 'survey_example_appfolder2'],
-    ),
+    {
+        'name':'survey_example',
+        'display_name': 'survey_example',
+        'num_demo_participants': 10,
+        'app_sequence': ['StartApp', 'survey_example_appfolder', 'survey_example_appfolder2'],
+    },
+    
 ]
 
 PARTICIPANT_FIELDS=['gender'] #accessing through multiple apps
