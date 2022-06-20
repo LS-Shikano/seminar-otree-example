@@ -1,4 +1,4 @@
-{% extends "global/GlobalPopout.html" %}
+{% extends "global/Page.html" %}
 {% load otree static %}
 
 {% block title %}
@@ -27,6 +27,12 @@
             divNo.style.display = "block";
         }
     }
+</script>
+
+<script>
+    var time = new Date();
+    var time = time.toISOString(); 
+    document.getElementById('time_popout').value = time; 
 </script>
 {% endblock %}
 
