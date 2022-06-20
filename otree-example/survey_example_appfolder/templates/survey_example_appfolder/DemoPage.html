@@ -2,26 +2,6 @@
 {% load otree static %}
 
 {% block scripts %}
-<script>
-    window.onload = function () {
-
-//import variables 
-var screenout = {{ screenout }}; //screenout boolean
-var quota= {{ quota }}; //quota boolean
-var label = {{ participant_label }}; //tic number
-
-//build urls 
-var url_screenout = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=0&return_tic=" + label;
-//c_002 = 0
-
-var url_quota = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=2&return_tic=" + label; 
-//c_002 = 2
-if (screenout==1) {window.location.replace(url_screenout);}
-if (quota==1) {window.location.replace(url_quota);}
-
-}
-</script>
-
 
 {% endblock %}
 
