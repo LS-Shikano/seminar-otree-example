@@ -46,21 +46,27 @@ class Subsession(BaseSubsession):
             p.sequence_of_apps = json.dumps(new_app_seq)
             p.participant.vars['_updated_seq_apps'] = seq_to_dict(new_app_seq)
 
+        session = Subsession.session
+        session.gender = 1
+
 
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0) #todo global 
+    pass
 
 class Player(BasePlayer):
     #randomization
-    sequence_of_apps = models.LongStringField() #todo needs to be global?
-    #variables on the HelperFunctions.py
-    screenout = models.BooleanField(initial=0) #todo global
-    quota = models.BooleanField(initial=0) #todo global
-
-    #Welcome
+    sequence_of_apps = models.LongStringField()
+    
+    #Welcome - METADATA
     device_type = models.IntegerField()
     operating_system = models.IntegerField()
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
-    entry_question = models.StringField(blank = True)
-    eligible_question = models.IntegerField()
+
+    #QuotaQuestions - Questions to check the quota
+    age = models.IntegerField()
+    gender = models.IntegerField()
+    federalstate = models.IntegerField()
+    #variables on the HelperFunctions.py
+    screenout = models.BooleanField(initial=0) #todo global
+    quota = models.BooleanField(initial=0) #todo global

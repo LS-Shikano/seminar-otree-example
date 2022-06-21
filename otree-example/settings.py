@@ -12,7 +12,9 @@ SESSION_CONFIGS = [
     
 ]
 
-PARTICIPANT_FIELDS=['gender'] #accessing through multiple apps
+PARTICIPANT_FIELDS=['gender', 'age', 'federalstate', 'screenout', 'quota'] #accessing through multiple apps
+
+SESSION_FIELDS=[] #global variables for all the sessions
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

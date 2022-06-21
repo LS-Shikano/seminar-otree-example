@@ -10,30 +10,11 @@
 
 {% block content %}
 <br>
-<h2> Survey Example </h2>
+<h2> Survey Example 1 </h2>
 <hr>
-This is a demo page
 
-{{ formfield "age_question"}}
-
-{{ formfield_errors 'age_question' }}
-
-
-<p><b>Which gender do you identify with?</b></p>
-<input type="radio" name="gender" value="1" /> Male
-<br>
-<input type="radio" name="gender" value="2" /> Female
-<br>
-<input type="radio" name="gender" value="3" /> Divers
-<br>
-<input type="radio" name="gender" value="4" /> Prefer not to say
-<br>
-<br>
-
-<input type="hidden" name="hidden_input">
-
-<button class="otree-btn-next btn btn-primary next-button otree-next-button">
-    Next
+<button class="otree-btn-next next-button otree-next-button">
+    Weiter
 </button>
 
 {% endblock %}

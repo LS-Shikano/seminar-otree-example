@@ -27,10 +27,7 @@ class Subsession(BaseSubsession):
 
     
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0)
+    pass
 
 class Player(BasePlayer):
-    # DemoPage
-    age_question = models.IntegerField(max=110, min=1)
-    gender = models.IntegerField(initial=-999, label='Gender Question')
-    hidden_input = models.IntegerField(initial=50, blank=True)         
+    pass     

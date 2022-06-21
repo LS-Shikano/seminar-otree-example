@@ -8,7 +8,6 @@ from .models import Constants, Player
 
 class PopoutPage(Page):
     form_model = Player
-    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
+    form_fields = []
 
-page_sequence = [PopoutPage,
-]
+page_sequence = [PopoutPage]

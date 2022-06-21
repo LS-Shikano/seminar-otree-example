@@ -25,13 +25,11 @@ class Subsession(BaseSubsession):
     pass
 
 
+
     
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0)
-
-
+    pass
+    
 
 class Player(BasePlayer):
-    #EndPage
-    #group_assignment = models.IntegerField() #the variable we declared on top
     pass

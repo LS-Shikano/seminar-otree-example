@@ -9,7 +9,7 @@ from .models import Constants, Player
 #more functionality added here but this is a good start. 
 
 
-from HelperFunctions import detect_screenout, detect_quota
+# from HelperFunctions import detect_screenout, detect_quota
 
 
 from ._builtin import Page as oTreePage
@@ -46,19 +46,27 @@ class Page(oTreePage):
 
 
 
+#Welcome Page for explaination of the survey and catching the metadata
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'entry_question', 'eligible_question']
+    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width']
+
+#Page to ask about our quota
+class QuotaQuestions(Page):
+    form_model = Player
+    form_fields = ['age', 'gender', 'federalstate']
     
     def before_next_page(self):
-        self.group.counter += 1
-        detect_screenout(self)
-        detect_quota(self)
+        # detect_screenout(self)
+        # detect_quota(self)
+        pass
 
+#Page used for redirecting and otherwise text to guide them to the first survey
 class RedirectPage(Page):
     form_model = Player
     def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label)}
     
 page_sequence = [Welcome,
+                QuotaQuestions,
                 RedirectPage]

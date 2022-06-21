@@ -5,6 +5,6 @@ from .models import Constants, Player
 
 class DemoPage(Page):
     form_model = Player
-    form_fields = ['age_question', 'gender', 'hidden_input']
+    form_fields = []
 
 page_sequence = [DemoPage]

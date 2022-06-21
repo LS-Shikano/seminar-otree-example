@@ -1,3 +1,9 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
 {% block scripts %}
 <!-- <script>
     // window onload guarantees that the first thing once the window is loaded is executing this function
@@ -10,18 +16,19 @@
     var complete_link = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=1&return_tic=" + label;
     //c_002=1
 
-    window.location.replace(complete_link);
-}
+    window.location.replace(complete_link);}
 </script> -->
-
 {% endblock %}
 
 {% block content %}
 
-<p> Please continue to the next app by clicking next
+<p> 
+    Mit 'Weiter' gelangen Sie zum ersten Teil dieser Umfrage.
+    <!-- todo: text für wir leiten sie jetzt weiter -->
 </p>
+
 <button class="otree-btn-next btn btn-primary next-button otree-next-button">
-    Next
+    Weiter
 </button>
 
 {% endblock %}

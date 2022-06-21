@@ -1,20 +1,19 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-
-
 {% block title %}
 {% endblock %}
 
 {% block scripts %}
+<!-- METADATA catching -->
 <script>
     //catching the device type
     var ua = navigator.userAgent;
-    var device_type = -999; //TODO: check if the default works; should we also have a try except in here?
+    var device_type = -999;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) device_type = 1; //tablet, ipad;
     if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|we{b)OS|Opera M(obi|ini)/.test(ua))
         device_type = 2; //mobile phone
-    else device_type = 3; //desktop TODO: check if actually desktop
+    else device_type = 3; //desktop
     document.getElementById('device_type').value = device_type;
 
     //catching the operating system
@@ -26,7 +25,6 @@
     if (ua.indexOf("like Mac") != -1) os = 5; //iOS
     document.getElementById('operating_system').value = os;
 
-
     //alternative version of catching the device type, all in pixels
     var screen_width = screen.width;
     document.getElementById('screen_width').value = screen_width;
@@ -36,32 +34,20 @@
 {% endblock %}
 
 {% block content %}
-
-
+<!-- META DATA -->
 <input id="device_type" type="hidden" name="device_type" />
 <input id="operating_system" type="hidden" name="operating_system" />
 <input id="screen_height" type="hidden" name="screen_height" />
 <input id="screen_width" type="hidden" name="screen_width" />
 
-
-<script src="{% static 'persist-raw.js' %}"></script>
-
 <br>
 <h2> START APP </h2>
+<!-- todo: add start and welcome text to exaplain the whole thing -->
 <hr>
 
 
-
-{{ formfield "entry_question"}}
-
-<p><b>Are you eligible to take part in this survey??</b></p>
-<input type="radio" name="eligible_question" value="1" class="persist" /> Yes
-<br>
-<input type="radio" name="eligible_question" value="2" class="persist" /> No
-<br>
-
-<button class="otree-btn-next btn btn-outline-success next-button otree-next-button">
-    Next
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Weiter
 </button>
 
 {% endblock %}

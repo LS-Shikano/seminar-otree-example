@@ -26,11 +26,7 @@ class Subsession(BaseSubsession):
 
     
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0)
+    pass
 
 class Player(BasePlayer):
-    #PopoutPage
-    popout_question = models.IntegerField(blank=True)
-    popout_yes = models.StringField(blank=True)
-    popout_no = models.StringField(blank=True)
-    time_popout = models.StringField(initial='-999')
+    pass

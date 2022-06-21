@@ -1,0 +1,113 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<!-- METADATA catching -->
+<script>
+    //catching the device type
+    var ua = navigator.userAgent;
+    var device_type = -999;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) device_type = 1; //tablet, ipad;
+    if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|we{b)OS|Opera M(obi|ini)/.test(ua))
+        device_type = 2; //mobile phone
+    else device_type = 3; //desktop
+    document.getElementById('device_type').value = device_type;
+
+    //catching the operating system
+    var os = -999; // default of -999 is written so we know it worked
+    if (ua.indexOf("Win") != -1) os = 1; //windows
+    if (ua.indexOf("Mac") != -1) os = 2; //Macintosh
+    if (ua.indexOf("Linux") != -1) os = 3; //Linux;
+    if (ua.indexOf("Android") != -1) os = 4; // Android
+    if (ua.indexOf("like Mac") != -1) os = 5; //iOS
+    document.getElementById('operating_system').value = os;
+
+    //alternative version of catching the device type, all in pixels
+    var screen_width = screen.width;
+    document.getElementById('screen_width').value = screen_width;
+    var screen_height = screen.height;
+    document.getElementById('screen_height').value = screen_height;
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- META DATA -->
+<input id="device_type" type="hidden" name="device_type" />
+<input id="operating_system" type="hidden" name="operating_system" />
+<input id="screen_height" type="hidden" name="screen_height" />
+<input id="screen_width" type="hidden" name="screen_width" />
+
+
+<!-- todo: add header or text -->
+
+<p style="text-align:right;"><b>*Pflichtfelder</b></p>
+
+<p><b>Was ist ihr Geschlecht?*</b></p>
+<input type="radio" name="gender"  value="1"/> Männlich
+<br>
+<input type="radio" name="gender"  value="2"/> Weiblich
+<br>
+<input type="radio" name="gender"  value="3"/> Divers
+<br>
+<input type="radio" name="gender"  value="4"/> Möchte ich nicht sagen
+<br>
+<input type="radio" name="gender"  value="-999"/> Keine Angabe
+{{ formfield_errors 'gender' }}
+<br>
+<br>
+<br>
+
+<!-- age-->
+<p><b>In welchem Jahr sind Sie geboren? Bitte geben Sie Ihr Geburtsjahr an*</b></p>
+<input type="text" name="age">
+{{ formfield_errors 'age' }}
+<br>
+<br>
+<br>
+
+<!-- federalstate -->
+<p><b>In welchem Bundesland leben Sie momentan?</b></p>
+<input type="radio" name="federalstate" value="1"/> Schleswig-Holstein
+<br>
+<input type="radio" name="federalstate" value="2"/> Hamburg
+<br>
+<input type="radio" name="federalstate" value="3"/> Niedersachsen
+<br>
+<input type="radio" name="federalstate" value="4"/> Bremen
+<br>
+<input type="radio" name="federalstate" value="5"/> Nordrhein-Westfalen
+<br>
+<input type="radio" name="federalstate" value="6"/> Hessen
+<br>
+<input type="radio" name="federalstate" value="7"/> Rheinland-Pfalz
+<br>
+<input type="radio" name="federalstate" value="8"/> Baden-Württemberg
+<br>
+<input type="radio" name="federalstate" value="9"/> Bayern
+<br>
+<input type="radio" name="federalstate" value="10"/> Saarland
+<br>
+<input type="radio" name="federalstate" value="11"/> Berlin
+<br>
+<input type="radio" name="federalstate" value="12"/> Brandenburg
+<br>
+<input type="radio" name="federalstate" value="13"/> Mecklenburg-Vorpommern
+<br>
+<input type="radio" name="federalstate" value="14"/> Sachsen
+<br>
+<input type="radio" name="federalstate" value="15"/> Sachsen-Anhalt
+<br>
+<input type="radio" name="federalstate" value="16"/> Thüringen
+<br>
+<input type="radio" name="federalstate" value="-888"/> weiß nicht
+{{ formfield_errors 'federalstate' }}
+<br> 
+<br> 
+<br>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Weiter
+</button>
+{% endblock %}
