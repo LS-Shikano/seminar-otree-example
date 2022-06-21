@@ -56,10 +56,13 @@ class QuotaQuestions(Page):
     form_model = Player
     form_fields = ['age', 'gender', 'federalstate']
     
-    def before_next_page(self):
+    # def before_next_page(self):
+    #     stand_gender = self.partcipant.group_gender_1
+#detect quota anhand von stand_gender
+
         # detect_screenout(self)
         # detect_quota(self)
-        pass
+        
 
 #Page used for redirecting and otherwise text to guide them to the first survey
 class RedirectPage(Page):

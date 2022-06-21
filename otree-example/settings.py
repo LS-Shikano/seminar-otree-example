@@ -12,7 +12,7 @@ SESSION_CONFIGS = [
     
 ]
 
-PARTICIPANT_FIELDS=['gender', 'age', 'federalstate', 'screenout', 'quota'] #accessing through multiple apps
+PARTICIPANT_FIELDS=['gender_count_male', 'current_gender', 'group_age', 'group_federalstate', 'group_screenout', 'group_quota'] #accessing through multiple apps
 
 SESSION_FIELDS=[] #global variables for all the sessions
 

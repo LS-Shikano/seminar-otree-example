@@ -7,8 +7,8 @@ from ._builtin import Page as oTreePage
 
 class EndPage(Page):
     form_model= Player
-    # def vars_for_template(self):
-    #     return {"gender": safe_json(self.session.gender)}
+    # def before_next_page(self):
+    #     self.participant.gender_count_male = self.participant.gender_count_male +1
 
 class RedirectPage(Page):
     def vars_for_template(self):

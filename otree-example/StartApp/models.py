@@ -45,13 +45,13 @@ class Subsession(BaseSubsession):
             new_app_seq = [first_app] + tail + [second_app]
             p.sequence_of_apps = json.dumps(new_app_seq)
             p.participant.vars['_updated_seq_apps'] = seq_to_dict(new_app_seq)
-
-        session = Subsession.session
-        session.gender = 1
+            #quota
+            p.participant.gender_count_male = 0
 
 
 class Group(BaseGroup):
-    pass
+    g_gender = models.IntegerField(initial=0)
+    
 
 class Player(BasePlayer):
     #randomization
