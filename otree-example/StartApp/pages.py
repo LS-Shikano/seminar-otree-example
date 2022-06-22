@@ -51,6 +51,11 @@ class Welcome(Page):
     form_model = Player
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width']
 
+
+    @staticmethod
+    def live_method(player: Player, data):
+        session = player.session
+
 #Page to ask about our quota
 class QuotaQuestions(Page):
     form_model = Player

@@ -14,7 +14,8 @@ SESSION_CONFIGS = [
 
 PARTICIPANT_FIELDS=['gender_count_male', 'current_gender', 'group_age', 'group_federalstate', 'group_screenout', 'group_quota'] #accessing through multiple apps
 
-SESSION_FIELDS=[] #global variables for all the sessions
+SESSION_FIELDS=['wait_for_ids',
+    'arrived_ids',] #global variables for all the sessions
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

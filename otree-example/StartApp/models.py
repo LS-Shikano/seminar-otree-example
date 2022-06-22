@@ -33,20 +33,35 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-class Subsession(BaseSubsession):
-    def creating_session(self):
-        '''creating the randomization'''
-        app_seq = self.session.config.get('app_sequence')
 
-        for p in self.get_players():
-            #randomizing
-            first_app, second_app, *tail = app_seq
-            random.shuffle(tail)
-            new_app_seq = [first_app] + tail + [second_app]
-            p.sequence_of_apps = json.dumps(new_app_seq)
-            p.participant.vars['_updated_seq_apps'] = seq_to_dict(new_app_seq)
-            #quota
-            p.participant.gender_count_male = 0
+
+class Subsession(BaseSubsession):
+    pass
+
+
+def creating_session(subsession: Subsession):
+    session = subsession.session
+    import random
+
+    session.wait_for_ids = 1
+    session.arrived_ids = 2
+
+##
+    app_seq = subsession.config.get('app_sequence')
+
+    for p in subsession.get_players():
+        # we just determine it randomly here.
+        # in your game, you should replace it with your desired logic.
+
+        #randomizing
+        first_app, second_app, *tail = app_seq
+        random.shuffle(tail)
+        new_app_seq = [first_app] + tail + [second_app]
+        p.sequence_of_apps = json.dumps(new_app_seq)
+        p.participant.vars['_updated_seq_apps'] = seq_to_dict(new_app_seq)
+
+        
+
 
 
 class Group(BaseGroup):
