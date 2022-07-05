@@ -20,20 +20,19 @@
 <h2> Survey Example </h2>
 <hr>
 
-<div class='bg-success'>Welcome to the first session of the tutorial. Here we are just going to have a look at the very
-    basic structure of otree.</div>
+<div class='bg-success'>Welcome to the first survey page!</div>
 
 <!-- This is the most basic way of implementing an input field -->
 {{ formfield "entry_question"}}
 
-<p><b>Are you eligible to take part in this survey??</b></p>
+<p><b>Do you like cats? You might be excluded if you say no now, so be careful!</b></p>
 <input type="radio" name="eligible_question" value="1" class="persist"/> Yes
 <br>
 <input type="radio" name="eligible_question" value="2" class="persist"/> No
 <br>
 
 
-<!-- you might see that this button looks differnt. It is because we used bootstrap classes
+<!-- you might see that this button looks different. It is because we used bootstrap classes
 to customize it. Bootstrap classes are essentially a premade layout that you can just 'load'
 by including it in the class. you can find more options on their website:
 https://getbootstrap.com/docs/5.2/components/buttons/.
